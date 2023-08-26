@@ -3,26 +3,23 @@
 
 #include "Walnut/Image.h"
 
-class ExampleLayer : public Walnut::Layer
+class Engine2D : public Walnut::Layer
 {
 public:
 	virtual void OnUIRender() override
 	{
-		ImGui::Begin("Hello");
-		ImGui::Button("Button");
+		ImGui::Begin("Engine");
 		ImGui::End();
-
-		ImGui::ShowDemoWindow();
 	}
 };
 
 Walnut::Application* Walnut::CreateApplication(int argc, char** argv)
 {
 	Walnut::ApplicationSpecification spec;
-	spec.Name = "Walnut Example";
+	spec.Name = "Engine2D";
 
 	Walnut::Application* app = new Walnut::Application(spec);
-	app->PushLayer<ExampleLayer>();
+	app->PushLayer<Engine2D>();
 	app->SetMenubarCallback([app]()
 	{
 		if (ImGui::BeginMenu("File"))
